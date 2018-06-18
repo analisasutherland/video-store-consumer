@@ -27,11 +27,12 @@ class Movie extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     console.log("form submit");
-    console.log(this.state);
 
     this.props.searchMovieCallback(this.state);
-
-    this.setState({query: ""})
+    console.log(this.state);
+    this.setState({
+      query: ''
+    });
   }
 
   render(){
