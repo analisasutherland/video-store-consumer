@@ -11,6 +11,7 @@ class Movie extends Component {
   }
 
   render(){
+    //TODO: Build out functionality on 'Rent This Movie' button
     return(
       <div>
       <section className="results-content">
@@ -23,9 +24,7 @@ class Movie extends Component {
       <p>{this.props.releaseDate}</p>
       <p>{this.props.overview}</p>
       </section>
-      <div className='movie-library-link'>
-      <a href='#'>Movie Library</a>
-      </div>
+      <button type="button">Rent This Movie</button>
       </div>
     );
   }

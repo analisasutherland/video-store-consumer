@@ -5,6 +5,7 @@ import axios from 'axios';
 import Movie from './Movie';
 import Customer from './Customer';
 import MovieSearchForm from './MovieSearchForm';
+import RentalLibrary from './RentalLibrary';
 
 const BASE_URL = 'http://localhost:3000/'
 
@@ -61,10 +62,10 @@ class VideoStore extends Component {
     });
     return(
       <div>
-        { results }
       <MovieSearchForm searchMovieCallback={this.searchMovie} />
-      <Movie />
+      <RentalLibrary />
       <Customer />
+      { results }
       </div>
     );
   }
