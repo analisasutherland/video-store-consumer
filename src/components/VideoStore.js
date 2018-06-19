@@ -29,6 +29,10 @@ class VideoStore extends Component {
   //
   //   });
   // }
+  viewLibrary = () => {
+    let libraryURL = BASE_URL + `movies`
+    // TODO: Pass the BASE_URL to axios for a GET request
+  }
 
   searchMovie = (query) => {
     console.log(query);
