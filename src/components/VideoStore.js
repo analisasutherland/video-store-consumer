@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Movie from './Movie';
 import Customer from './Customer';
+import MovieSearchForm from './MovieSearchForm';
 
 const BASE_URL = 'http://localhost:3000/'
 
@@ -61,7 +62,8 @@ class VideoStore extends Component {
     return(
       <div>
         { results }
-      <Movie searchMovieCallback={this.searchMovie} />
+      <MovieSearchForm searchMovieCallback={this.searchMovie} />
+      <Movie />
       <Customer />
       </div>
     );
