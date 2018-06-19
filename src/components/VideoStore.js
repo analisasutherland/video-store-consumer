@@ -13,10 +13,10 @@ class VideoStore extends Component {
   constructor(){
     super();
     this.state = {
-      results: []
+      results: [],
+      library: []
     };
   }
-
   // componentDidMount() {
   //   // TODO: Build in statuses with a Status component
   //   // this.props.updateStatusCallback('Loading Movies....','success');
@@ -29,9 +29,20 @@ class VideoStore extends Component {
   //
   //   });
   // }
+
   viewLibrary = () => {
     let libraryURL = BASE_URL + `movies`
-    // TODO: Pass the BASE_URL to axios for a GET request
+    console.log(libraryURL)
+    axios.get(libraryURL)
+    .then((response) => {
+      console.log('Success');
+      console.log(response.data);
+      const library = response.data
+      this.setState({ library: library });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   searchMovie = (query) => {
@@ -52,23 +63,37 @@ class VideoStore extends Component {
     });
   }
 
-
+ // TODO: Dry up this section using the same Movie Component code
   render(){
     const results = this.state.results.map((result,index) =>{
       return <Movie
-        key={index}
-        index={index}
-        title={result.title}
-        overview={result.overview}
-        releaseDate={result.release_date}
-        image={result.image_url}
+      key={index}
+      index={index}
+      title={result.title}
+      overview={result.overview}
+      releaseDate={result.release_date}
+      image={result.image_url}
       />
     });
-    return(
+    //
+    const libraryResults = this.state.library.map((result, index) => {
+      return <Movie
+      key={index}
+      index={index}
+      title={result.title}
+      overview={result.overview}
+      releaseDate={result.release_date}
+      image={result.image_url}
+      />
+    });
+    return (
       <div>
       <MovieSearchForm searchMovieCallback={this.searchMovie} />
-      <RentalLibrary />
       <Customer />
+      <RentalLibrary
+      viewLibraryCallback={this.viewLibrary}
+      />
+      { libraryResults }
       { results }
       </div>
     );
