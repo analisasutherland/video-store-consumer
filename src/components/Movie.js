@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 class Movie extends Component {
   static propTypes = {
-    searchMovieCallback: PropTypes.func.isRequired
+    searchMovieCallback: PropTypes.func.isRequired,
+    index: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string,
+    releaseDate: PropTypes.string,
+    image: PropTypes.string,
   }
 
   constructor() {
@@ -48,6 +53,18 @@ class Movie extends Component {
            />
             <input type="submit"/>
         </form>
+        <section className="results-content">
+          <h2>{this.props.title}</h2>
+          <div className="movie-image">
+            <img src={this.props.image} />
+          </div>
+
+          <p>{this.props.releaseDate}</p>
+          <p>{this.props.overview}</p>
+
+
+
+        </section>
         <div className='movie-library-link'>
           <a href='#'>Movie Library</a>
         </div>

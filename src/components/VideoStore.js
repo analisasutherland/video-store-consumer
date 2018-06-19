@@ -8,6 +8,13 @@ import Customer from './Customer';
 const BASE_URL = 'http://localhost:3000/'
 
 class VideoStore extends Component {
+  constructor(){
+    super();
+    this.state = {
+      results: []
+    };
+  }
+
   // componentDidMount() {
   //   // TODO: Build in statuses with a Status component
   //   // this.props.updateStatusCallback('Loading Movies....','success');
@@ -27,7 +34,9 @@ class VideoStore extends Component {
     axios.get(searchURL)
     .then((response) => {
       console.log('Success');
-      console.log(response);
+      console.log(response.data);
+      this.setState({results: response.data});
+      console.log(this.state.results);
     })
 
     .catch((error) => {
@@ -39,8 +48,19 @@ class VideoStore extends Component {
 
 
   render(){
+    const results = this.state.results.map((result,index) =>{
+      return <Movie
+        key={index}
+        index={index}
+        title={result.title}
+        overview={result.overview}
+        releaseDate={result.release_date}
+        image={result.image_url}
+      />
+    });
     return(
       <div>
+        { results }
       <Movie searchMovieCallback={this.searchMovie} />
       <Customer />
       </div>
