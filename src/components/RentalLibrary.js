@@ -20,11 +20,11 @@ class RentalLibrary extends Component {
 
   }
 
- // TODO: Dry up this portion, render just movies maybe?
+  // TODO: Dry up this portion, render just movies maybe?
   render() {
     return(
       <div className='movie-library-link'>
-      <a onClick={this.onLinkClick} href='#'>Rental Library</a>
+        <a onClick={this.onLinkClick} href='#'>Rental Library</a>
 
       </div>
     );

@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import {
+  Route,
+  NavLink,
+  HashRouter,
+} from "react-router-dom";
+
 import Movie from './Movie';
 import Customer from './Customer';
 import MovieSearchForm from './MovieSearchForm';
@@ -17,18 +23,6 @@ class VideoStore extends Component {
       library: []
     };
   }
-  // componentDidMount() {
-  //   // TODO: Build in statuses with a Status component
-  //   // this.props.updateStatusCallback('Loading Movies....','success');
-  //   axios.get()
-  //   .then((response) => {
-  //
-  //   })
-  //
-  //   .catch((error) => {
-  //
-  //   });
-  // }
 
   viewLibrary = () => {
     let libraryURL = BASE_URL + `movies`
@@ -63,39 +57,75 @@ class VideoStore extends Component {
     });
   }
 
- // TODO: Dry up this section using the same Movie Component code
+  // TODO: Dry up this section using the same Movie Component code
   render(){
     const results = this.state.results.map((result,index) =>{
       return <Movie
-      key={index}
-      index={index}
-      title={result.title}
-      overview={result.overview}
-      releaseDate={result.release_date}
-      image={result.image_url}
+        key={index}
+        index={index}
+        title={result.title}
+        overview={result.overview}
+        releaseDate={result.release_date}
+        image={result.image_url}
       />
     });
     //
     const libraryResults = this.state.library.map((result, index) => {
       return <Movie
-      key={index}
-      index={index}
-      title={result.title}
-      overview={result.overview}
-      releaseDate={result.release_date}
-      image={result.image_url}
+        key={index}
+        index={index}
+        title={result.title}
+        overview={result.overview}
+        releaseDate={result.release_date}
+        image={result.image_url}
       />
     });
     return (
-      <div>
-      <MovieSearchForm searchMovieCallback={this.searchMovie} />
-      <Customer />
-      <RentalLibrary
-      viewLibraryCallback={this.viewLibrary}
-      />
-      { libraryResults }
-      { results }
-      </div>
+      <HashRouter>
+        <div >
+          <h1>VideoStore!!!!!</h1>
+
+          <ul className="header">
+            <li>
+              <NavLink to="/"> Main Page </NavLink>
+            </li>
+            <li>
+              <NavLink to="/search"> Search </NavLink>
+            </li>
+            <li>
+              <NavLink to="/library"> Library </NavLink>
+            </li>
+            <li>
+              <NavLink to="/customers"> Customers </NavLink>
+            </li>
+          </ul>
+
+          <div className="content">
+            <Route
+              path="/search"
+              render={ () => (
+                <MovieSearchForm searchMovieCallback={this.searchMovie} />
+              )}
+            />
+            <Route
+              path="/library"
+              render={ () => (
+                <RentalLibrary
+                  viewLibraryCallback={this.viewLibrary}
+                />
+              )}
+            />
+            <Route
+              path="/customers"
+              render={ () => (<Customer />) }
+            />
+          </div>
+
+          { libraryResults }
+          { results }
+        </div>
+
+      </HashRouter>
     );
   }
 

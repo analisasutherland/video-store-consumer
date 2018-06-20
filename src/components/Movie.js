@@ -14,17 +14,17 @@ class Movie extends Component {
     //TODO: Build out functionality on 'Rent This Movie' button
     return(
       <div>
-      <section className="results-content">
-      <h2>{this.props.title}</h2>
+        <section className="results-content">
+          <h2>{this.props.title}</h2>
 
-      <div className="movie-image">
-      <img src={this.props.image} />
-      </div>
+          <div className="movie-image">
+            <img src={this.props.image} />
+          </div>
 
-      <p>{this.props.releaseDate}</p>
-      <p>{this.props.overview}</p>
-      </section>
-      <button type="button">Rent This Movie</button>
+          <p>{this.props.releaseDate}</p>
+          <p>{this.props.overview}</p>
+        </section>
+        <button type="button">Rent This Movie</button>
       </div>
     );
   }
