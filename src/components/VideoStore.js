@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 // import Movie from './Movie';
-import Customer from './Customer';
+import CustomerList from './CustomerList';
 import MovieSearchForm from './MovieSearchForm';
 import RentalLibrary from './RentalLibrary';
 
@@ -53,7 +53,7 @@ class VideoStore extends Component {
       />
       <Route
       path="/customers"
-      render={ () => (<Customer />) }
+      render={ () => (<CustomerList />) }
       />
       </div>
       </div>
