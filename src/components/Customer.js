@@ -24,7 +24,8 @@ class Customer extends Component {
 
     axios.get(customerURL)
     .then((response) => {
-      console.log(response.data);
+      console.log(response);
+      // console.log(response.data);
 
       let customerList = response.data;
 
@@ -36,15 +37,15 @@ class Customer extends Component {
   }
 
   render(){
-    const customerResults = this.state.customerList.map((results,index) => {
-      return <Customer
+    const customerResults = this.state.customerList.map((result,index) => {
+      return <CustomerList // TODO: CREATE A new customerlist component that will render a customer
         key={index}
         index={index}
-        name={results.name}
-        phone={results.phone}
-        account_credit={results.account_credit}
+        name={result.name}
+        phone={result.phone}
+        account_credit={result.account_credit}
       />
-    })
+    });
     return(
       <div className="customer-list-link">
         {customerResults}
