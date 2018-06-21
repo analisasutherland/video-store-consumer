@@ -8,6 +8,16 @@ class Movie extends Component {
     overview: PropTypes.string,
     releaseDate: PropTypes.string,
     image: PropTypes.string,
+    id: PropTypes.number,
+    movieSelectionCallback: PropTypes.func
+  }
+
+  onButtonClick = (event) => {
+    console.log('movie button clicked');
+    let index = event.target.value;
+    let id = event.target.id;
+
+    // this.props.movieSelectionCallback(index, id);
   }
 
   render(){
@@ -24,7 +34,11 @@ class Movie extends Component {
           <p>{this.props.releaseDate}</p>
           <p>{this.props.overview}</p>
         </section>
-        <button type="button">Rent This Movie</button>
+        <button onClick={this.onButtonClick} type="button"
+            id={this.props.id}
+            value={this.props.index}
+
+          >Rent This Movie</button>
       </div>
     );
   }

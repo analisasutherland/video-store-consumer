@@ -21,6 +21,7 @@ class Customer extends Component {
           <p>
             {this.props.phone}
           </p>
+          <button type="button">Select for Rental</button>
         </section>
       </div>
     );

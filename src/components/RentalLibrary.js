@@ -12,7 +12,10 @@ class RentalLibrary extends Component {
     title: PropTypes.string,
     overview: PropTypes.string,
     releaseDate: PropTypes.string,
-    image: PropTypes.string
+    image: PropTypes.string,
+    id: PropTypes.number,
+    movieSelectionCallback: PropTypes.func
+
   }
 
   constructor() {
@@ -21,7 +24,7 @@ class RentalLibrary extends Component {
       library: []
     };
   }
- 
+
   componentDidMount() {
     let libraryURL = BASE_URL + `movies`
     console.log(libraryURL)
@@ -46,6 +49,8 @@ class RentalLibrary extends Component {
       overview={result.overview}
       releaseDate={result.release_date}
       image={result.image_url}
+      id={result.id}
+      movieSelectionCallback={result.movieSelectionCallback}
       />
     });
     return(
