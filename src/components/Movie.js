@@ -16,8 +16,8 @@ class Movie extends Component {
     console.log('movie button clicked');
     let index = event.target.value;
     let id = event.target.id;
-
-    // this.props.movieSelectionCallback(index, id);
+  
+    this.props.movieSelectionCallback(index, id);
   }
 
   render(){
@@ -35,13 +35,12 @@ class Movie extends Component {
           <p>{this.props.overview}</p>
         </section>
         <button onClick={this.onButtonClick} type="button"
-            id={this.props.id}
-            value={this.props.index}
-
+          id={this.props.id}
+          value={this.props.index}
           >Rent This Movie</button>
-      </div>
-    );
+        </div>
+      );
+    }
   }
-}
 
-export default Movie;
+  export default Movie;

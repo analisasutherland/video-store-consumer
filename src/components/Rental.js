@@ -6,26 +6,19 @@ import Movie from './Movie';
 
 class Rental extends Component {
   static propTypes = {
-
+    index: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number,
   }
 
-  constructor() {
-    super();
-    this.state = {
-      selectedCustomer: "",
-      selectedMovie: ""
-    };
-  }
 
-  movieSelection = (index, id) =>{
-    let updatedMovie = this.state.selectedMovie;
-    console.log(updatedMovie);
-  }
 // TODO: Need to render the the state of rental selection.
   render(){
     return(
       <div>
-        <Movie movieSelectionCallback={this.movieSelection}/>
+        <h3>Selected movie:{this.props.title}</h3>
+        <h3>Selected Customer: </h3>
+
       </div>
     );
   }

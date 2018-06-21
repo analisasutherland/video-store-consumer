@@ -3,25 +3,18 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import Movie from './Movie';
+import Rental from './Rental';
 
 const BASE_URL = 'http://localhost:3000/'
 
 class RentalLibrary extends Component {
-  static propTypes = {
-    index: PropTypes.number,
-    title: PropTypes.string,
-    overview: PropTypes.string,
-    releaseDate: PropTypes.string,
-    image: PropTypes.string,
-    id: PropTypes.number,
-    movieSelectionCallback: PropTypes.func
-
-  }
 
   constructor() {
     super();
     this.state = {
-      library: []
+      library: [],
+      selectedCustomer: "",
+      selectedMovie: ""
     };
   }
 
@@ -40,6 +33,16 @@ class RentalLibrary extends Component {
     });
   }
 
+  movieSelection = (index, id) =>{
+
+    let updatedMovie = this.state.library[index];
+    console.log(updatedMovie);
+
+
+    this.setState({selectedMovie: updatedMovie})
+    console.log(updatedMovie);
+  }
+
   render() {
     const libraryResults = this.state.library.map((result, index) => {
       return <Movie
@@ -50,12 +53,13 @@ class RentalLibrary extends Component {
       releaseDate={result.release_date}
       image={result.image_url}
       id={result.id}
-      movieSelectionCallback={result.movieSelectionCallback}
+      movieSelectionCallback={this.movieSelection}
       />
     });
     return(
       <div className='movie-library-link'>
-      { libraryResults }
+        <Rental title={this.state.selectedMovie.title}/>
+        { libraryResults }
       </div>
     );
   }
