@@ -8,13 +8,20 @@ import Rental from './Rental';
 const BASE_URL = 'http://localhost:3000/'
 
 class RentalLibrary extends Component {
+  static propTypes = {
+    passSelectedMovieCallback: PropTypes.func,
+    title: PropTypes.string
+  }
 
   constructor() {
     super();
     this.state = {
-      library: [],
-      selectedMovie: ""
+      library: []
     };
+  }
+
+  passSelectedMovie = () => {
+    this.props.passSelectedMovieCallback(this.props.title)
   }
 
   componentDidMount() {
@@ -32,15 +39,6 @@ class RentalLibrary extends Component {
     });
   }
 
-  movieSelection = (index, id) =>{
-
-    let updatedMovie = this.state.library[index];
-    console.log(updatedMovie);
-
-    this.setState({selectedMovie: updatedMovie})
-    console.log(updatedMovie);
-  }
-
   render() {
     const libraryResults = this.state.library.map((result, index) => {
       return <Movie
@@ -51,12 +49,12 @@ class RentalLibrary extends Component {
       releaseDate={result.release_date}
       image={result.image_url}
       id={result.id}
-      movieSelectionCallback={this.movieSelection}
+      movieSelectionCallback={this.props.passSelectedMovieCallback}
       />
     });
     return(
       <div>
-        <Rental title={this.state.selectedMovie.title}/>
+        <Rental title={this.props.title}/>
         <p> { libraryResults }</p>
       </div>
     );

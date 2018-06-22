@@ -14,12 +14,12 @@ class Customer extends Component {
 
   onButtonClick = (event) => {
     console.log("Customer Button Clicked");
-    let index = event.target.value;
+    let name = event.target.name;
     let id = event.target.id;
-    console.log(index);
+    console.log(name);
     console.log(id);
 
-    this.props.customerSelectionCallback(index, id);
+    this.props.customerSelectionCallback(name, id);
   }
 
 
@@ -38,7 +38,7 @@ class Customer extends Component {
       onClick={this.onButtonClick}
       type="button"
       id={this.props.id}
-      value={this.props.index}
+      name={this.props.name}
       >Select for Rental</button>
       </section>
       </div>

@@ -15,14 +15,15 @@ class Movie extends Component {
 
   onButtonClick = (event) => {
     console.log('movie button clicked');
-    let index = event.target.value;
-    let id = event.target.id;
+    console.log(event.target.title);
+    let title = event.target.title;
+    // let id = event.target.id;
+    console.log(title);
 
-    this.props.movieSelectionCallback(index, id);
+    this.props.movieSelectionCallback(title);
   }
 
   render(){
-    //TODO: Build out functionality on 'Rent This Movie' button
     return(
       <div className="results">
         <section className="results__content">
@@ -30,8 +31,7 @@ class Movie extends Component {
             <h3>{this.props.title}</h3>
             <p>Release date: {this.props.releaseDate}</p>
             <button onClick={this.onButtonClick} type="button"
-              id={this.props.id}
-              value={this.props.index}
+              title={this.props.title}
               >Rent This Movie</button>
           </div>
           <div>
@@ -41,12 +41,7 @@ class Movie extends Component {
             <h3>Overview</h3>
             <p className="results__content-text">{this.props.overview}</p>
           </div>
-
-
-
-
         </section>
-
         </div>
       );
     }

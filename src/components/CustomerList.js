@@ -7,7 +7,9 @@ const BASE_URL = 'http://localhost:3000/'
 
 class CustomerList extends Component {
   static propTypes = {
+    passSelectedCustomerCallback: PropTypes.func,
     name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     phone: PropTypes.string,
     account_credit: PropTypes.number,
   }
@@ -15,7 +17,6 @@ class CustomerList extends Component {
   constructor(){
     super();
     this.state = {
-      selectedCustomer: "",
       customerList: []
     };
   }
@@ -37,12 +38,8 @@ class CustomerList extends Component {
     });
   }
 
-  customerSelection = (index, id) => {
-    let updatedCustomer = this.state.customerList[index];
-    console.log(updatedCustomer);
-
-    this.setState({ selectedCustomer: updatedCustomer })
-    console.log(updatedCustomer);
+  passSelectedCustomer = () => {
+    this.props.passSelectedCustomerCallback(this.props.name, this.props.id)
   }
 
   render() {
@@ -54,13 +51,14 @@ class CustomerList extends Component {
       phone={result.phone}
       account_credit={result.account_credit}
       id={result.id}
-      customerSelectionCallback={this.customerSelection}
+      customerSelectionCallback={this.props.passSelectedCustomerCallback}
       />
     });
     return (
       <div>
       <Customer
-      name={this.state.selectedCustomer.name}
+      name={this.props.name}
+      id={this.props.id}
       />
       {customerResults}
       </div>
