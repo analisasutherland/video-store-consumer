@@ -59,7 +59,7 @@ class RentalLibrary extends Component {
     return(
       <div>
         <Rental title={this.state.selectedMovie.title}/>
-        { libraryResults }
+        <p> { libraryResults }</p>
       </div>
     );
   }

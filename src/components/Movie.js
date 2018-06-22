@@ -28,17 +28,17 @@ class Movie extends Component {
         <section className="results__content">
           <div>
             <h3>{this.props.title}</h3>
-            <p>{this.props.releaseDate}</p>
+            <p>Release date: {this.props.releaseDate}</p>
             <button onClick={this.onButtonClick} type="button"
               id={this.props.id}
               value={this.props.index}
               >Rent This Movie</button>
           </div>
           <div>
-            <img className="movie-image" src={this.props.image} height="250" width="150"/>
+            <img className="movie-image" src={this.props.image} height="250" width="200"/>
           </div>
           <div>
-            <h4>Movie Overview</h4>
+            <h3>Overview</h3>
             <p className="results__content-text">{this.props.overview}</p>
           </div>
 

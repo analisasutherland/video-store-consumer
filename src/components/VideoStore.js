@@ -19,7 +19,7 @@ class VideoStore extends Component {
     return (
       <HashRouter>
         <div >
-          <h1 className="header__text">VideoStore!!!!!</h1>
+          <h1 className="header__text">Ol' Skool VideoStore!!!!!</h1>
 
           <ul className="header__text">
             <li>
@@ -36,7 +36,7 @@ class VideoStore extends Component {
             </li>
           </ul>
 
-          <div >
+          <div className="content">
             <Route
               path="/search"
               render={ () => (

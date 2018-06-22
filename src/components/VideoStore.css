@@ -1,9 +1,9 @@
 body {
   font-family: 'Raleway', sans-serif;
   display:grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   text-align: center;
-  /* max-width: 85%; */
+  margin: 40px;
+
 }
 
 h1, h2 {
@@ -18,26 +18,30 @@ h1, h2 {
 
 .header__h1 {
   margin: auto 0;
-
-  text-align: center;
 }
 
 .header__text {
   padding: 1rem;
+  padding-left: 10rem;
 
-  text-align: center;
   display: flex;
-  background-color: #222;
+  background-color: hotpink;
   color: white;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: bolder;
 
   list-style: none;
-  vw: 60;
+  text-align: center;
 
   transform: rotate(-3deg) skew(-3deg);
 }
 
 .header__text li{
   margin: 20px;
+
+}
+
+.content {
+  max-height: 70vh;
+  overflow: scroll;
 }

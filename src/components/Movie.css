@@ -1,14 +1,15 @@
 .results section {
-  padding: 1em 0;
+  padding: 1em 1em;
   margin: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   border: 2px solid hotpink;
+  
 }
-.results-content {
-
-
-
+.results__content button {
+  padding: 1em;
+  background-color: #222;
+  color: #FFFFFF;
 
 }
 .results__content-text {
