@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -10,7 +11,8 @@ const BASE_URL = 'http://localhost:3000/'
 class RentalLibrary extends Component {
   static propTypes = {
     passSelectedMovieCallback: PropTypes.func,
-    title: PropTypes.string
+    title: PropTypes.string,
+    name: PropTypes.string
   }
 
   constructor() {
@@ -54,7 +56,6 @@ class RentalLibrary extends Component {
     });
     return(
       <div>
-        <Rental title={this.props.title}/>
         <p> { libraryResults }</p>
       </div>
     );

@@ -63,7 +63,10 @@ class VideoStore extends Component {
       <NavLink to="/customers"> Customers </NavLink>
       </li>
       </ul>
-
+      <div>
+      <h4>Selected movie: {this.state.selectedMovie}</h4>
+      <h4>Selected Customer: {this.state.selectedCustomer} </h4>
+      </div>
       <div className="content">
       <Route
       path="/search"

@@ -4,13 +4,25 @@ import axios from 'axios';
 import "./Rental.css";
 
 import Movie from './Movie';
-
+import Customer from './Customer';
 
 class Rental extends Component {
   static propTypes = {
     index: PropTypes.number,
     title: PropTypes.string.isRequired,
     id: PropTypes.number,
+    name: PropTypes.string,
+    createRentalCallback: PropTypes.func
+  }
+
+  onClick = (event) => {
+    console.log('Creating a Rental');
+    let movie = event.target.title;
+    let customer = event.target.name;
+    let customerId = event.target.id;
+
+    console.log(customerId);
+    this.props.createRentalCallback(movie, customerId);
   }
 
 
@@ -18,9 +30,9 @@ class Rental extends Component {
   render(){
     return(
       <div className="rental-header">
-        <h4>Selected movie: {this.props.title}</h4>
-        <h4>Selected Customer: </h4>
-
+        <button onClick={this.onClick} type='button' title="Create Rental">
+          Create A Rental
+        </button>
       </div>
     );
   }
