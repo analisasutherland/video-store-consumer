@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   border: 2px solid hotpink;
-  
+
 }
 .results__content button {
   padding: 1em;
@@ -19,7 +19,9 @@
 h3 {
   font-family: 'Permanent Marker', Helvetica, sans-serif;
   font-size: 2rem;
+
 }
 p {
   font-size: 15px;
+
 }
