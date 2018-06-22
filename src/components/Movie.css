@@ -1,0 +1,24 @@
+.results section {
+  padding: 1em 0;
+  margin: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 2px solid hotpink;
+}
+.results-content {
+
+
+
+
+}
+.results__content-text {
+  text-overflow: ellipsis;
+  /* overflow: scroll; */
+}
+h3 {
+  font-family: 'Permanent Marker', Helvetica, sans-serif;
+  font-size: 2rem;
+}
+p {
+  font-size: 15px;
+}

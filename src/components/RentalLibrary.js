@@ -57,7 +57,7 @@ class RentalLibrary extends Component {
       />
     });
     return(
-      <div className='movie-library-link'>
+      <div>
         <Rental title={this.state.selectedMovie.title}/>
         { libraryResults }
       </div>

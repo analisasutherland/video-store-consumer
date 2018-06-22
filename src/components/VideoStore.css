@@ -1,0 +1,43 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  display:grid;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  text-align: center;
+  /* max-width: 85%; */
+}
+
+h1, h2 {
+  font-family: 'Permanent Marker', Helvetica, sans-serif;
+  font-size: 3rem;
+}
+
+.header {
+  padding: 4rem;
+
+}
+
+.header__h1 {
+  margin: auto 0;
+
+  text-align: center;
+}
+
+.header__text {
+  padding: 1rem;
+
+  text-align: center;
+  display: flex;
+  background-color: #222;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+
+  list-style: none;
+  vw: 60;
+
+  transform: rotate(-3deg) skew(-3deg);
+}
+
+.header__text li{
+  margin: 20px;
+}

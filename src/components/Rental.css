@@ -1,0 +1,11 @@
+.rental-header {
+  display:flex;
+  justify-content: space-between;
+
+  max-width: 85%;
+}
+
+.rental-header h4 {
+  align-content: center;
+  padding-left: 60px;
+}

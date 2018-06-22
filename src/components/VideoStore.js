@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import axios from 'axios';
+import './VideoStore.css'
 
 import {
   Route,
@@ -20,9 +19,9 @@ class VideoStore extends Component {
     return (
       <HashRouter>
         <div >
-          <h1>VideoStore!!!!!</h1>
+          <h1 className="header__text">VideoStore!!!!!</h1>
 
-          <ul className="header">
+          <ul className="header__text">
             <li>
               <NavLink to="/"> Main Page </NavLink>
             </li>
@@ -37,7 +36,7 @@ class VideoStore extends Component {
             </li>
           </ul>
 
-          <div className="content">
+          <div >
             <Route
               path="/search"
               render={ () => (
@@ -57,7 +56,7 @@ class VideoStore extends Component {
               render={ () => (<CustomerList />) }
             />
           </div>
-          
+
         </div>
       </HashRouter>
     );
