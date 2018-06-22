@@ -15,6 +15,7 @@ class CustomerList extends Component {
   constructor(){
     super();
     this.state = {
+      selectedCustomer: "",
       customerList: []
     };
   }
@@ -36,22 +37,35 @@ class CustomerList extends Component {
     });
   }
 
+  customerSelection = (index, id) => {
+    let updatedCustomer = this.state.customerList[index];
+    console.log(updatedCustomer);
+
+    this.setState({ selectedCustomer: updatedCustomer })
+    console.log(updatedCustomer);
+  }
+
   render() {
     const customerResults = this.state.customerList.map((result,index) => {
-      return <Customer // TODO: CREATE A new customerlist component that will render a customer
+      return <Customer
       key={index}
       index={index}
       name={result.name}
       phone={result.phone}
       account_credit={result.account_credit}
-    />
-  });
-  return (
-    <div>
+      id={result.id}
+      customerSelectionCallback={this.customerSelection}
+      />
+    });
+    return (
+      <div>
+      <Customer
+      name={this.state.selectedCustomer.name}
+      />
       {customerResults}
-    </div>
-  );
-}
+      </div>
+    );
+  }
 }
 
 export default CustomerList;

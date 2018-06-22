@@ -13,7 +13,6 @@ class RentalLibrary extends Component {
     super();
     this.state = {
       library: [],
-      selectedCustomer: "",
       selectedMovie: ""
     };
   }
@@ -37,7 +36,6 @@ class RentalLibrary extends Component {
 
     let updatedMovie = this.state.library[index];
     console.log(updatedMovie);
-
 
     this.setState({selectedMovie: updatedMovie})
     console.log(updatedMovie);
