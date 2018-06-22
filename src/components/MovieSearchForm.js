@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Movie from './Movie';
+import './MovieSearchForm.css';
 
 const BASE_URL = 'http://localhost:3000/'
 
@@ -52,7 +53,7 @@ class MovieSearchForm extends Component {
       query: ''
     });
   }
-  
+
   render() {
     const results = this.state.results.map((result,index) =>{
       return <Movie
@@ -66,15 +67,16 @@ class MovieSearchForm extends Component {
     });
     return(
       <div>
-        <form onSubmit={this.onFormSubmit} className='movie-search-bar'>
-          <input
+        <h2 className="search-header"> Search for a Movie </h2>
+        <form onSubmit={this.onFormSubmit} >
+          <input className='movie-search-bar'
           type="text"
           name="query"
-          placeholder="enter search word"
+          placeholder="Enter Keyword"
           onChange={this.onInputChange}
           value={this.state.query}
         />
-          <input type="submit"/>
+          <input className="search-button" type="submit"/>
       </form>
         <div className="search-results">
           { results }
